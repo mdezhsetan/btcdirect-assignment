@@ -6,7 +6,10 @@
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "prepare": "husky"
+    "prepare": "husky",
+    "pw:test": "playwright test --ui",
+    "pw:test:headless": "playwright test",
+    "pw:codegen": "npx playwright codegen http://btcdirect.eu"
   },
   "keywords": [],
   "author": "",

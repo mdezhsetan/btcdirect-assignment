@@ -40,6 +40,7 @@ export default defineConfig([
     files: ['tests/**'],
     rules: {
       ...playwright.configs['flat/recommended'].rules,
+      'playwright/expect-expect': 'off',
     },
   },
   prettierPlugin,
