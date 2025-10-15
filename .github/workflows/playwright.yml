@@ -1,11 +1,17 @@
 name: Playwright Tests
+
 on:
   push:
-    branches: [main, master]
+    branches: [main]
   pull_request:
-    branches: [main, master]
+    branches: [main]
+
 jobs:
   test:
+    strategy:
+      matrix:
+        environment: ["staging"]
+    environment: ${{ matrix.environment }}
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
@@ -18,6 +24,11 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
       - name: Run Playwright tests
+        env:
+          VALID_EMAIL_ADDRESS: ${{ vars.VALID_EMAIL_ADDRESS }}
+          VALID_PASSWORD: ${{ vars.VALID_PASSWORD }}
+          VALID_USERNAME: ${{ vars.VALID_USERNAME }}
+          BASE_URL: ${{ vars.BASE_URL }}
         run: npx playwright test
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
