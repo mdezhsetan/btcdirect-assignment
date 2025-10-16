@@ -18,7 +18,12 @@ export const credentials = {
   },
   invalid: {
     email: process.env.VALID_EMAIL_ADDRESS,
-    password: 'invalid',
+    password: 'invalidPassword',
+    username: process.env.VALID_USERNAME,
+  },
+  unregistered: {
+    email: 'unregistered@example.com',
+    password: process.env.VALID_PASSWORD,
     username: process.env.VALID_USERNAME,
   },
 };

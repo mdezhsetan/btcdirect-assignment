@@ -1,3 +1,3 @@
 export const enum Locale {
-  En = 'en-eu',
+  En = 'en-gb',
 }
