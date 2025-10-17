@@ -28,7 +28,8 @@ jobs:
           VALID_EMAIL_ADDRESS: ${{ vars.VALID_EMAIL_ADDRESS }}
           VALID_PASSWORD: ${{ vars.VALID_PASSWORD }}
           VALID_USERNAME: ${{ vars.VALID_USERNAME }}
-          BASE_URL: ${{ vars.BASE_URL }}
+          DASHBOARD_BASE_URL: ${{ vars.DASHBOARD_BASE_URL }}
+          LANDING_PAGE_BASE_URL: ${{ vars.LANDING_PAGE_BASE_URL }}
         run: npx playwright test
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}

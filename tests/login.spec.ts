@@ -1,15 +1,15 @@
 import test from '@playwright/test';
 import { LandingPage } from '../pages/landingPage';
 import { LoginPage } from '../pages/loginPage';
-import { Locale } from './test-data/locale.data';
 import { credentials } from './test-data/login.data';
+import { Locale } from './test-data/locale.data';
 
 test('successful login with valid credentials', async ({ page }) => {
-  const landingPage = new LandingPage(page);
-  const loginPage = new LoginPage(page);
+  const landingPage = new LandingPage(page, Locale.En);
+  const loginPage = new LoginPage(page, Locale.En);
 
   await test.step('navigate to login page', async () => {
-    await landingPage.visit(Locale.En);
+    await landingPage.visit();
     await landingPage.acceptCookies();
     await landingPage.expectLoggedOut();
     await landingPage.clickSignInButton();
@@ -22,11 +22,11 @@ test('successful login with valid credentials', async ({ page }) => {
 });
 
 test('failed login with invalid password', async ({ page }) => {
-  const landingPage = new LandingPage(page);
-  const loginPage = new LoginPage(page);
+  const landingPage = new LandingPage(page, Locale.En);
+  const loginPage = new LoginPage(page, Locale.En);
 
   await test.step('navigate to login page', async () => {
-    await landingPage.visit(Locale.En);
+    await landingPage.visit();
     await landingPage.acceptCookies();
     await landingPage.expectLoggedOut();
     await landingPage.clickSignInButton();
@@ -41,11 +41,11 @@ test('failed login with invalid password', async ({ page }) => {
 });
 
 test('failed login with unregistered email', async ({ page }) => {
-  const landingPage = new LandingPage(page);
-  const loginPage = new LoginPage(page);
+  const landingPage = new LandingPage(page, Locale.En);
+  const loginPage = new LoginPage(page, Locale.En);
 
   await test.step('navigate to login page', async () => {
-    await landingPage.visit(Locale.En);
+    await landingPage.visit();
     await landingPage.acceptCookies();
     await landingPage.expectLoggedOut();
     await landingPage.clickSignInButton();
