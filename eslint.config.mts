@@ -30,12 +30,6 @@ export default defineConfig([
     extends: ['json/recommended'],
   },
   {
-    files: ['**/*.md'],
-    plugins: { markdown },
-    language: 'markdown/gfm',
-    extends: ['markdown/recommended'],
-  },
-  {
     ...playwright.configs['flat/recommended'],
     files: ['tests/**'],
     rules: {
@@ -44,4 +38,13 @@ export default defineConfig([
     },
   },
   prettierPlugin,
+  {
+    files: ['**/*.md'],
+    plugins: { markdown },
+    language: 'markdown/gfm',
+    extends: ['markdown/recommended'],
+    rules: {
+      'prettier/prettier': 'off',
+    },
+  },
 ]);
